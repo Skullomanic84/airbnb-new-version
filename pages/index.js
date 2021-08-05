@@ -2,8 +2,9 @@ import Head from 'next/head';
 import Header from '../Components/Header';
 import Jambotron from '../Components/Jambotron';
 import SmallCard from '../Components/SmallCard';
+import MediumCard from '../Components/MediumCard';
 
-export default function Home({ exploreData }) {
+export default function Home({ exploreData, cardsData }) {
   return (
     <div className="">
       <Head>
@@ -24,7 +25,7 @@ export default function Home({ exploreData }) {
         <section className="pt-6">
           <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
 
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+          <div className='grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
               {/*pull some data from a server - API endpoints */}
 
               {exploreData?.map(({img, distance, location}) => (
@@ -39,6 +40,22 @@ export default function Home({ exploreData }) {
           
           </div>      
         </section>
+        
+        {/*Medium card section */}
+        <section>
+              <h2 className='text-4xl font-semibold py-8'>Live Anywhere</h2>
+        {/*medium card wrapper/container */}
+              <div className='flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3'>
+                     {cardsData?.map(({ img, title }) => (
+                          <MediumCard 
+                          key={img}
+                          img={img}
+                          title={title} 
+                          />
+                        ))
+                      }
+              </div>
+        </section>
      </main>  
     </div>
   );
@@ -48,9 +65,12 @@ export async function getStaticProps(){
   const exploreData = await fetch('https://links.papareact.com/pyp').then((res) =>res.json()
   );
 
+  const cardsData = await fetch('https://links.papareact.com/zp1').then(res => res.json())
+
   return {
     props: {
-      exploreData
+      exploreData,
+      cardsData
     }
   }
 }
