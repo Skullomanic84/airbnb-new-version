@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="">
       <Head>
-        <title>Airbnb Clone</title>
+        <title>Airbnb Clone V2</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
