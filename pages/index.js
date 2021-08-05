@@ -1,5 +1,6 @@
-import Head from 'next/head'
-import Header from '../Components/Header'
+import Head from 'next/head';
+import Header from '../Components/Header';
+import Jambotron from '../Components/Jambotron'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
      { /*Header section */ }
      <Header />
      { /*Banner section */ }
+     <Jambotron />
       
     </div>
   )
