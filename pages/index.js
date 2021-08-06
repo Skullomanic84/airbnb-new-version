@@ -4,6 +4,7 @@ import Jambotron from '../Components/Jambotron';
 import SmallCard from '../Components/SmallCard';
 import MediumCard from '../Components/MediumCard';
 import LargeCard from '../Components/LargeCard';
+import Footer from '../Components/Footer';
 
 export default function Home({ exploreData, cardsData }) {
   return (
@@ -67,10 +68,13 @@ export default function Home({ exploreData, cardsData }) {
         description='Wishlists curated by Airbnb.'
         buttonText='Get Inspired'
         />
+     </main> 
+     
+     {/* Footer section */}
+     <Footer />
 
 
 
-     </main>  
     </div>
   );
 }
