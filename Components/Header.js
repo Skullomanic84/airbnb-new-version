@@ -13,7 +13,7 @@ import { useRouter } from 'next/dist/client/router';
 
 
 
-function Header() {
+function Header({placeholder}) {
 
     const [noOfGuests, setNoOfGuests] = useState(1) // default minmum no. of guest
     const [searchInput, setSearchInput ] = useState('');
@@ -68,7 +68,7 @@ function Header() {
                         value={searchInput}
                         onChange={(e)=> setSearchInput(e.target.value)} 
                         type="text" 
-                        placeholder="start your search" 
+                        placeholder={placeholder || "start your search"}
                         className="outline-none pl-5 bg-transparent flex-grow text-sm text-gray-600 placeholder-gray-400"/>
 
                         <SearchIcon className="hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2" />
