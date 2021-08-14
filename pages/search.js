@@ -3,6 +3,7 @@ import Footer from '../Components/Footer'
 import { useRouter } from "next/dist/client/router";
 import { format } from "date-fns";
 import InfoCard from "../Components/InfoCard";
+import Map from "../Components/Map";
 
 function Search({ searchResults }) {
 
@@ -46,6 +47,9 @@ function Search({ searchResults }) {
                     total={total} />
                 ))}
                 </div>
+                </section>
+                <section className='hidden xl:inline-flex xl:min-w-[600px]'>
+                <Map searchResults={searchResults}/>
                 </section>
                 </main>
             <Footer />
